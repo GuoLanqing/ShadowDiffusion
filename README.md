@@ -46,6 +46,10 @@ dataroot # validation dataset path -- Line 30
 python sr.py -p val -c config/shadow.json
 ```
 We use the DDIM sampling to speed up the inference stage. The number of steps can be set as 5 or 25.
+```python
+skip = self.num_timesteps // 5
+# skip = self.num_timesteps // 25
+```
 
 ## Train
 1. Download datasets and set the following structure
