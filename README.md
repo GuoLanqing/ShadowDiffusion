@@ -29,7 +29,7 @@ pip install -r requirements.txt
 [[Mask]]()
 
 ## Pretrained models
- [SRD]() | [ISTD]() 
+ [SRD](https://drive.google.com/drive/folders/18Q4YT2AApzOPlzvAUbdbUo-A2RtysIgo?usp=sharing) | [ISTD]() 
 
 Please download the corresponding pretrained model and modify the `resume_state` in `shadow.json`.
 
@@ -45,6 +45,7 @@ dataroot # validation dataset path -- Line 30
 ```python
 python sr.py -p val -c config/shadow.json
 ```
+We use the DDIM sampling to speed up the inference stage. The number of steps can be set as 5 or 25.
 
 ## Train
 1. Download datasets and set the following structure
