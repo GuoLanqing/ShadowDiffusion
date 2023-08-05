@@ -76,7 +76,7 @@ The results reported in the paper are calculated by the `matlab` script used in 
 The testing results on dataset ISTD, ISTD+, SRD are: [results]()
 
 ## References
-Our implementation is based on [SR3]([https://github.com/ZhendongWang6/Uformer](https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement)) and [WeatherDiffusion](https://github.com/IGITUGraz/WeatherDiffusion). We would like to thank them.
+Our implementation is based on [SR3](https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement) and [WeatherDiffusion](https://github.com/IGITUGraz/WeatherDiffusion). We would like to thank them.
 
 Citation
 -----
