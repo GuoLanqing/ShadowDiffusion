@@ -78,7 +78,7 @@ python sr.py -p train -c config/shadow.json
 The results reported in the paper are calculated by the `matlab` script used in [previous method](https://github.com/zhuyr97/AAAI2022_Unfolding_Network_Shadow_Removal/tree/master/codes). Details refer to `evaluation/measure_shadow.m`.
 
 #### Testing results
-The testing results on dataset ISTD, ISTD+, SRD are: [results]()
+The testing results on dataset ISTD, ISTD+, SRD are: [results](https://drive.google.com/file/d/1CXgPLVGFZ4RsdlnGco88Of2mlmVvdlK0/view?usp=sharing)
 
 ## References
 Our implementation is based on [SR3](https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement) and [WeatherDiffusion](https://github.com/IGITUGraz/WeatherDiffusion). We would like to thank them.
