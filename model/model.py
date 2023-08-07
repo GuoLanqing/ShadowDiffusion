@@ -206,7 +206,7 @@ class DDPM(BaseModel):
             if self.opt['phase'] == 'train':
                 # optimizer
                 opt = torch.load(opt_path)
-                self.optG.load_state_dict(opt['optimizer'])
+                # self.optG.load_state_dict(opt['optimizer'])
                 self.begin_step = opt['iter']
                 self.begin_epoch = opt['epoch']
-                self.ema_helper.load_state_dict(['ema_helper'])
+                # self.ema_helper.load_state_dict(['ema_helper'])
