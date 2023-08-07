@@ -18,13 +18,13 @@ class LRHRDataset(Dataset):
         if split == 'train':
             gt_dir = 'train_C'
             input_dir = 'train_A'
-            mask_dir = 'train_B_bk'
+            mask_dir = 'train_B'
             # gt_dir = 'Normal'
             # input_dir = 'Low'
         else:
-            gt_dir = 'test_C_bk'
-            input_dir = 'test_A_bk'
-            mask_dir = 'test_B_bk'
+            gt_dir = 'test_C'
+            input_dir = 'test_A'
+            mask_dir = 'test_B'
             # gt_dir = 'Normal'
             # input_dir = 'Low'
 
@@ -109,10 +109,9 @@ class LRHRDataset(Dataset):
             img_SR = Image.open(self.sr_path[index]).convert("RGB")
             if self.split == 'train':
                 hr_name = self.sr_path[index].replace('.jpg', '_no_shadow.jpg')
-                hr_name = hr_name.replace('_A', '_C')
             else:
                 hr_name = self.sr_path[index].replace('.jpg', '_free.jpg')
-                hr_name = hr_name.replace('_A_', '_C_')
+            hr_name = hr_name.replace('_A', '_C')
             img_HR = Image.open(hr_name).convert("RGB")
             img_mask = Image.open(self.mask_path[index]).convert("1")
             if self.need_LR:
