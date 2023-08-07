@@ -12,7 +12,7 @@ In CVPR'2023
 ## Introduction
 Our work addresses shadow removal by proposing a unified diffusion framework, dubbed ShadowDiffusion, that integrates both the image and degradation priors for highly effective shadow removal. ShadowDiffusion progressively refines the estimated shadow mask as an auxiliary task of the diffusion generator, which leads to more accurate and robust shadow-free image generation. For more details, please refer to our [original paper](https://arxiv.org/pdf/2212.04711.pdf).
 
-<p align=center><img width="80%" src="doc/pipeline.jpg"/></p>
+<p align=center><img width="80%" src="doc/framework.jpg"/></p>
 
 ## Requirement
 * Python 3.7
