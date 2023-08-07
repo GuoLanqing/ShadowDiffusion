@@ -286,10 +286,10 @@ class FCN(nn.Module):
             nn.ReLU(inplace=True),
             nn.Conv2d(64, 64, 3, padding=1),
             nn.ReLU(inplace=True),
-            nn.Conv2d(64, 1, 3, padding=1),
+            nn.Conv2d(64, 1, 1, 1, 0),
             nn.Sigmoid()
         )
 
     def forward(self, x):
-        # x_mask = torch.cat([x, mask], dim=1)
+        # xin = torch.cat((x, mask), dim=1)
         return self.fcn(x)
