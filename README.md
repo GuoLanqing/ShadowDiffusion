@@ -26,10 +26,10 @@ pip install -r requirements.txt
 * ISTD [[link]](https://github.com/DeepInsight-PCALab/ST-CGAN)  
 * ISTD+ [[link]](https://github.com/cvlab-stonybrook/SID)
 * SRD [[Training]](https://drive.google.com/file/d/1W8vBRJYDG9imMgr9I2XaA13tlFIEHOjS/view)[[Testing]](https://drive.google.com/file/d/1GTi4BmQ0SJ7diDMmf-b7x2VismmXtfTo/view)
-[[Mask]]()
-
+[[Mask]](https://uofmacau-my.sharepoint.com/personal/yb87432_umac_mo/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyb87432%5Fumac%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval%2Fsrd%5Fmask%2Ezip&parent=%2Fpersonal%2Fyb87432%5Fumac%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval&ga=1)
+ (detected by [DHAN](https://github.com/vinthony/ghost-free-shadow-removal))
 ## Pretrained models
- [SRD](https://drive.google.com/drive/folders/18Q4YT2AApzOPlzvAUbdbUo-A2RtysIgo?usp=sharing) | [ISTD]() 
+ [SRD](https://drive.google.com/drive/folders/1ZySQATCFjgRKE8a95gGyGYbhTaIgD8O7?usp=sharing) | [ISTD]() 
 
 Please download the corresponding pretrained model and modify the `resume_state` in `shadow.json`.
 
@@ -78,7 +78,7 @@ python sr.py -p train -c config/shadow.json
 The results reported in the paper are calculated by the `matlab` script used in [previous method](https://github.com/zhuyr97/AAAI2022_Unfolding_Network_Shadow_Removal/tree/master/codes). Details refer to `evaluation/measure_shadow.m`.
 
 #### Testing results
-The testing results on dataset ISTD, ISTD+, SRD are: [results](https://drive.google.com/file/d/1CXgPLVGFZ4RsdlnGco88Of2mlmVvdlK0/view?usp=sharing)
+The testing results on dataset ISTD, ISTD+, SRD are: [results](https://drive.google.com/file/d/1IbA8TKIpAsxk9Vb1QHe1oIR0X-qC_gMN/view?usp=sharing)
 
 ## References
 Our implementation is based on [SR3](https://github.com/Janspiry/Image-Super-Resolution-via-Iterative-Refinement) and [WeatherDiffusion](https://github.com/IGITUGraz/WeatherDiffusion). We would like to thank them.
