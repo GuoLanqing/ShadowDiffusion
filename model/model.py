@@ -144,7 +144,7 @@ class DDPM(BaseModel):
         if sample:
             out_dict['SAM'] = self.SR.detach().float().cpu()
         else:
-            out_dict['SR'] = self.SR.detach().float().cpu()
+            out_dict['SR'] = self.SR[0].detach().float().cpu()
             out_dict['INF'] = self.data['SR'].detach().float().cpu()
             out_dict['HR'] = self.data['HR'].detach().float().cpu()
             if need_LR and 'LR' in self.data:
