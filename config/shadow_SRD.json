@@ -10,7 +10,7 @@
         "results": "results",
         "checkpoint": "checkpoint",
 //        "resume_state": null
-        "resume_state": "./pretrained/SRD/I2130000_E12080" //pretrain model or training state
+        "resume_state": "./pretrained/SRD/srd" //pretrain model or training state
     },
     "setting": {
         "use_degradation_estimate": false,

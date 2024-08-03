@@ -10,7 +10,7 @@
         "results": "results",
         "checkpoint": "checkpoint",
 //        "resume_state": null
-        "resume_state": "./pretrained/ISTD_Plus/I1710000_E14251" //pretrain model or training state
+        "resume_state": "./pretrained/ISTD_Plus/istdplus" //pretrain model or training state
 },
     "setting": {
         "use_degradation_estimate": true,
