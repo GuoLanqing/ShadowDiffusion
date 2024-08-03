@@ -79,8 +79,6 @@ if __name__ == "__main__":
         # degradation predict model
         model_restoration = transformer.Uformer()
         model_restoration.cuda()
-        # path_chk_rest_student = './pretrained/model_best.pth'
-        # path_chk_rest_student = '/home/lanqing/projects/Uformer/log/Uformer_istdplus_cvpr1/models/model_best.pth'
         utils.load_checkpoint(model_restoration, opt['setting']['degradation_model_path'])
         model_restoration.eval()
 
