@@ -75,12 +75,14 @@ if __name__ == "__main__":
     diffusion = Model.create_model(opt)
     logger.info('Initial Model Finished')
 
-    # degradation predict model
-    # model_restoration = transformer.Uformer()
-    # model_restoration.cuda()
-    # path_chk_rest_student = '../models/model_epoch_450.pth'
-    # utils.load_checkpoint(model_restoration, path_chk_rest_student)
-    # model_restoration.eval()
+    if opt['setting']['use_degradation_estimate']:
+        # degradation predict model
+        model_restoration = transformer.Uformer()
+        model_restoration.cuda()
+        # path_chk_rest_student = './pretrained/model_best.pth'
+        # path_chk_rest_student = '/home/lanqing/projects/Uformer/log/Uformer_istdplus_cvpr1/models/model_best.pth'
+        utils.load_checkpoint(model_restoration, opt['setting']['degradation_model_path'])
+        model_restoration.eval()
 
     # Train
     current_step = diffusion.begin_step
@@ -208,16 +210,17 @@ if __name__ == "__main__":
         for _,  val_data in enumerate(val_loader):
             idx += 1
             diffusion.feed_data(val_data)
-            diffusion.test(continous=True)
+            if opt['setting']['use_degradation_estimate']:
+                x_hat = model_restoration((val_data['SR'] + 1) / 2, val_data['mask'])
+                x_hat = torch.clamp(x_hat, 0, 1)
+                # x_hat = x_hat * 2 - 1
+                h_hat = (val_data['SR']+1) / (2 *(x_hat) + 1e-4)
+                # h_hat = torch.clamp(h_hat, 0, 1)
+                h_hat = torch.where(h_hat == 0, h_hat + 1e-4, h_hat)
+                diffusion.test_d(h_hat, continous=True)
+            else:
+                diffusion.test(continous=True)
             visuals = diffusion.get_current_visuals()
-            # x_hat = model_restoration((val_data['SR'] + 1) / 2, val_data['mask'])
-            # x_hat = torch.clamp(x_hat, 0, 1)
-            # # x_hat = x_hat * 2 - 1
-            # h_hat = (val_data['SR']+1) / (2 *(x_hat) + 1e-4)
-            # h_hat = torch.clamp(h_hat, 0, 1)
-            # h_hat = torch.where(h_hat == 0, h_hat + 1e-4, h_hat)
-            # diffusion.test(h_hat, continous=True)
-            # visuals = diffusion.get_current_visuals()
 
             hr_img = Metrics.tensor2img(visuals['HR'])  # uint8
             lr_img = Metrics.tensor2img(visuals['LR'])  # uint8

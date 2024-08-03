@@ -101,15 +101,27 @@ class DDPM(BaseModel):
         # set log
         self.log_dict['l_pix'] = l_pix.item()
 
+
     def test(self, continous=False):
         self.netG.eval()
         with torch.no_grad():
             if isinstance(self.netG, nn.DataParallel):
-                self.SR = self.netG.module.super_resolution(
+                self.SR, self.new_mask = self.netG.module.super_resolution(
                     self.data['SR'], self.data['mask'], continous)
             else:
-                self.SR = self.netG.super_resolution(
+                self.SR, self.new_mask = self.netG.super_resolution(
                     self.data['SR'], self.data['mask'], continous)
+        self.netG.train()
+
+    def test_d(self, h_hat, continous=False):
+        self.netG.eval()
+        with torch.no_grad():
+            if isinstance(self.netG, nn.DataParallel):
+                self.SR, self.new_mask = self.netG.module.super_resolution_d(
+                    self.data['SR'], self.data['mask'], h_hat, continous)
+            else:
+                self.SR, self.new_mask = self.netG.super_resolution_d(
+                    self.data['SR'], self.data['mask'], h_hat, continous)
         self.netG.train()
 
     def sample(self, batch_size=1, continous=False):
@@ -144,8 +156,8 @@ class DDPM(BaseModel):
         if sample:
             out_dict['SAM'] = self.SR.detach().float().cpu()
         else:
-            out_dict['SR'] = self.SR[0].detach().float().cpu()
-            out_dict['INF'] = self.data['SR'].detach().float().cpu()
+            out_dict['SR'] = self.SR.detach().float().cpu()
+            out_dict['INF'] = self.new_mask.detach().float().cpu()
             out_dict['HR'] = self.data['HR'].detach().float().cpu()
             if need_LR and 'LR' in self.data:
                 out_dict['LR'] = self.data['LR'].detach().float().cpu()

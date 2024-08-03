@@ -1968,8 +1968,8 @@ class Uformer(nn.Module):
                  dowsample=Downsample, upsample=Upsample, **kwargs):
         super().__init__()
         self.recur1 = Uformer_sub1()
-        self.recur2 = Uformer_sub()
-        self.recur3 = Uformer_sub()
+        # self.recur2 = Uformer_sub()
+        # self.recur3 = Uformer_sub()
 
     def forward(self, x_input, mask):
         output = self.recur1(x_input, mask)

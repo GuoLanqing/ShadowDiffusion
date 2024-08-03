@@ -237,13 +237,15 @@ class UNet(nn.Module):
 
         self.mask_tail = FCN()
 
+        # self.mask_update = FCN()
+
     def forward(self, x, time):
-        x_lr = x[:, :3, :, :]
-        x_mask = x[:, 3, :, :].unsqueeze(1)
-        x_noisy = x[:, 4:, :, :]
+        # x_lr = x[:, :3, :, :]
+        # x_mask = x[:, 3, :, :].unsqueeze(1)
+        # x_noisy = x[:, 4:, :, :]
         # updated_mask = self.mask_update(x_noisy, x_mask)
-        # x_updated_mask = updated_mask.detach()
-        x = torch.cat((x_lr, x_mask, x_noisy), dim=1)
+        # # x_updated_mask = updated_mask.detach()
+        # x = torch.cat((x_lr, updated_mask, x_noisy), dim=1)
 
         t = self.noise_level_mlp(time) if exists(
             self.noise_level_mlp) else None
@@ -268,6 +270,7 @@ class UNet(nn.Module):
                 # if x.shape[2]!=feat.shape[2] or x.shape[3]!=feat.shape[3]:
                 #     feat = F.interpolate(feat, x.shape[2:])
                 x = layer(torch.cat((x, feat), dim=1), t)
+
             else:
                 x = layer(x)
 
