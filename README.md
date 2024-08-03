@@ -45,13 +45,9 @@ dataroot # validation dataset path -- Line 30
 ```
 2. Test the model
 ```python
-python sr.py -p val -c config/shadow.json
+python sr.py -p val -c config/shadow_SRD.json
 ```
-We use the DDIM sampling to speed up the inference stage. The number of steps can be set as 5 or 25.
-```python
-skip = self.num_timesteps // 5
-# skip = self.num_timesteps // 25
-```
+We use the DDIM sampling to speed up the inference stage. The number of steps can be set by `T_sampling` as 5 or 25.
 
 ## Train
 1. Download datasets and set the following structure
