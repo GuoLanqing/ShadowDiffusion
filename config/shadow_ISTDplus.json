@@ -14,7 +14,7 @@
 },
     "setting": {
         "use_degradation_estimate": true,
-        "degradation_model_path": "./pretrained/ISTD_Plus/degradation_model.pth"
+        "degradation_model_path": "./pretrained/ISTD_Plus/istdplus_degradation_model.pth"
     },
     "datasets": {
         "train": {
