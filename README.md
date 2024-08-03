@@ -7,6 +7,7 @@ In CVPR'2023
 
 
 #### News
+* **Aug 03, 2024**: Release the complete code, pretrained model for ISTD, ISTD+, and evaluation results. Sorry for updating late :pray:.
 * **Aug 08, 2023**: Release the pretrained model for SRD and evaluation results.
 * **Aug 05, 2023**: Release the training and testing codes.
 
