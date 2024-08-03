@@ -28,7 +28,7 @@ pip install -r requirements.txt
 * ISTD [[link]](https://github.com/DeepInsight-PCALab/ST-CGAN)  
 * ISTD+ [[link]](https://github.com/cvlab-stonybrook/SID)
 * SRD [[Training]](https://drive.google.com/file/d/1W8vBRJYDG9imMgr9I2XaA13tlFIEHOjS/view)[[Testing]](https://drive.google.com/file/d/1GTi4BmQ0SJ7diDMmf-b7x2VismmXtfTo/view)
-[[Mask]](https://uofmacau-my.sharepoint.com/personal/yb87432_umac_mo/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyb87432%5Fumac%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval%2Fsrd%5Fmask%2Ezip&parent=%2Fpersonal%2Fyb87432%5Fumac%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval&ga=1)
+[[Mask]](https://uofmacau-my.sharepoint.com/personal/yb87432_um_edu_mo/_layouts/15/onedrive.aspx?id=%2Fpersonal%2Fyb87432%5Fum%5Fedu%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval%2Fsrd%5Fmask%2Ezip&parent=%2Fpersonal%2Fyb87432%5Fum%5Fedu%5Fmo%2FDocuments%2Fghost%2Dfree%2Dshadow%2Dremoval&ga=1)
  (detected by [DHAN](https://github.com/vinthony/ghost-free-shadow-removal))
 ## Pretrained models
  [SRD](https://drive.google.com/drive/folders/1ZySQATCFjgRKE8a95gGyGYbhTaIgD8O7?usp=sharing) | [ISTD]() 
