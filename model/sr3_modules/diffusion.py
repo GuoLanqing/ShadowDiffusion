@@ -219,27 +219,6 @@ class GaussianDiffusion(nn.Module):
             xs.append(xt_next.to('cpu'))
         ret_img = xs
         return ret_img[-1], mask_preds[-1]
-        # if not self.conditional:
-        #     shape = x_in
-        #     img = torch.randn(shape, device=device)
-        #     ret_img = img
-        #     for i in tqdm(reversed(range(0, self.num_timesteps)), desc='sampling loop time step', total=self.num_timesteps):
-        #         img = self.p_sample(img, i)
-        #         if i % sample_inter == 0:
-        #             ret_img = torch.cat([ret_img, mask, img], dim=0)
-        # else:
-        #     x = x_in
-        #     shape = x.shape
-        #     img = torch.randn(shape, device=device)
-        #     ret_img = x
-        #     for i in tqdm(reversed(range(0, self.num_timesteps)), desc='sampling loop time step', total=self.num_timesteps):
-        #         img = self.p_sample(img, mask, i, condition_x=x)
-        #         if i % sample_inter == 0:
-        #             ret_img = torch.cat([ret_img, mask, img], dim=0)
-        # if continous:
-        #     return ret_img
-        # else:
-        #     return ret_img[-1]
 
     @torch.no_grad()
     def p_sample_loop_d(self, x_lr, mask_0, h_hat, continous=False):
@@ -322,27 +301,6 @@ class GaussianDiffusion(nn.Module):
         x_noisy = x_start * a.sqrt() + e * (1.0 - a).sqrt()
         x_recon, updated_mask = self.denoise_fn(
             torch.cat([x_in['SR'], x_in['mask'], x_noisy], dim=1), t.float())
-        # x_recon2, updated_mask2 = self.denoise_fn(
-        #     torch.cat([x_in['SR'], updated_mask, x_noisy], dim=1), t.float())
-        # continuous_sqrt_alpha_cumprod = torch.FloatTensor(
-        #     np.random.uniform(
-        #         self.sqrt_alphas_cumprod_prev[t-1],
-        #         self.sqrt_alphas_cumprod_prev[t],
-        #         size=b
-        #     )
-        # ).to(x_start.device)
-        # continuous_sqrt_alpha_cumprod = continuous_sqrt_alpha_cumprod.view(
-        #     b, -1)
-        #
-        #
-        # x_noisy = self.q_sample(
-        #     x_start=x_start, continuous_sqrt_alpha_cumprod=continuous_sqrt_alpha_cumprod.view(-1, 1, 1, 1), noise=noise)
-        #
-        # if not self.conditional:
-        #     x_recon = self.denoise_fn(x_noisy, continuous_sqrt_alpha_cumprod)
-        # else:
-        #     x_recon = self.denoise_fn(
-        #         torch.cat([x_in['SR'], x_in['mask'], x_noisy], dim=1), continuous_sqrt_alpha_cumprod)
 
         loss = self.loss_func(e, x_recon)
         # avg_channel = torch.mean((x_in['SR']+1)/2, dim=(2,3), keepdim=True)
