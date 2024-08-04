@@ -33,7 +33,7 @@ pip install -r requirements.txt
 ## Pretrained models
 [[Link]](https://drive.google.com/file/d/12VV5HzxlIg_kCjMHsw8R9n543wYfGfAB/view?usp=sharing)
 
-Please download the corresponding pretrained model and modify the `resume_state` in `shadow.json`.
+Please download the corresponding pretrained model and modify the `resume_state` and `degradation_model_path` (optional) in `shadow.json`.
 
 
 ## Test
